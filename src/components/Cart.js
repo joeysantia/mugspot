@@ -1,4 +1,4 @@
-const Cart = () => {
+const Cart = ({ cart, setCart }) => {
     return <h1>Cart</h1>
 }
 

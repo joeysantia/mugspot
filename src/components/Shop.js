@@ -1,4 +1,4 @@
-const Shop = () => {
+const Shop = ({ itemArray, cart, setCart }) => {
     return <h1>Shop</h1>
 }
 
