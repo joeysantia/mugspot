@@ -28,7 +28,7 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
     if (quantity > 0) {
       let updatedItem = JSON.parse(JSON.stringify(item));
       
-      updatedItem.quantity = quantity;
+      updatedItem.quantity = parseInt(quantity);
         
       let updatedCart = JSON.parse(JSON.stringify(cart));
       

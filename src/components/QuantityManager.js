@@ -24,8 +24,6 @@ const QuantityManager = ({ quantity, setQuantity }) => {
             <button onClick={(e) => decrement()}>Minus</button>
             <input type="number" onChange={(e) => handleOnChange(e)} id="quantity" value={quantity}/>
             <button onClick={(e) => increment()}>Plus</button>
-
-
         </div>
     )
 }
