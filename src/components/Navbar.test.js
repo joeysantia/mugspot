@@ -14,4 +14,11 @@ describe("Navbar component", () => {
         render(<Navbar quantity={2} />, { wrapper: MemoryRouter })
         expect(screen.getByText("2")).toBeInTheDocument()
     })
+
+    //Integration tests
+    it.skip("redirects to Home when the logo is clicked", () => {})
+
+    it.skip("redirects to Shop when the shop link is clicked", () => {})
+    
+    it.skip("redirects to Cart when the cart icon is clicked", () => {})
 })

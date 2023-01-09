@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router";
 import QuantityManager from "./QuantityManager";
+
 const ItemPage = ({ itemArray, cart, setCart }) => {
   let params = useParams();
 
@@ -9,11 +10,12 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
   }, []);
 
   function getItem(id) {
+
     let copyArr = JSON.parse(JSON.stringify(itemArray))
     let copyCart = JSON.parse(JSON.stringify(cart))
     
-    for (const item of copyArr) {
-      if (item.id === id) {
+    for (const item1 of copyArr) {
+      if (item1.id === id) {
 
         for (const item2 of copyCart) {
           if (item2.id === id) {
@@ -32,7 +34,7 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
 
   function updateCart(e) {
     e.preventDefault();
-    let quantity = document.querySelector("#quantity").value;
+    let quantity = document.querySelector(`#${item.id}-quantity`).value;
     
     if (quantity > 0) {
       let updatedItem = JSON.parse(JSON.stringify(item));
@@ -42,15 +44,18 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
       let updatedCart = JSON.parse(JSON.stringify(cart));
       
       let isInCart = false
+      
       for (let item of updatedCart) {
         if (updatedItem.id === item.id) {
             item = updatedItem
-            isInCart = !isInCart
+            isInCart = true 
         }
       }
+      
       if (!isInCart) {
         updatedCart.push(updatedItem)
       }      
+      
       setCart(updatedCart)
       setAddedToCart(true)
       
@@ -65,7 +70,7 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
       <h2>{item.name}</h2>
       <p>{item.description}</p>
       <p>{item.price}</p>
-      <QuantityManager quantity={quantity} />
+      <QuantityManager itemId={item.id} quantity={quantity} />
       <button type="submit">Add to Cart</button>
     </form>
   );

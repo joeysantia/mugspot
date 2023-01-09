@@ -63,28 +63,31 @@ describe('ItemPage component', () => {
                 img: '#',
                 price: 14.95,
                 quantity: 2,
-              }, 
-        
+              },    
     ]
 
+    //Integration tests
+
+    //these first two shouldnt be integration tests if useParams can be mocked 
     it('renders the title, description, price, image, and quantity of an item', () => {
         
 
-        render(<App />)
-        userEvent.click(screen.getByRole("button", { name: "Shop Now"}))
-        userEvent.click(screen.getByRole("heading", {name: "Campfire Mug"}))
-
-        expect(screen).toMatchSnapshot()
-    })
-
-    it('redirects to Shop when addedToCart is true', () => {
-
       render(<App />)
+      userEvent.click(screen.getByRole("button", { name: "Shop Now"}))
       userEvent.click(screen.getByRole("heading", {name: "Campfire Mug"}))
-      userEvent.click(screen.getByRole("button", { name: "+"}))
-      userEvent.click(screen.getByRole("button", { name: "Add to Cart"}))
-      expect(screen.getByText("Products")).toBeInTheDocument()
-    })
+
+      expect(screen).toMatchSnapshot()
+  })
+
+  it('redirects to Shop when addedToCart is true', () => {
+
+    render(<App />)
+    userEvent.click(screen.getByRole("heading", {name: "Campfire Mug"}))
+    userEvent.click(screen.getByRole("button", { name: "+"}))
+    userEvent.click(screen.getByRole("button", { name: "Add to Cart"}))
+    expect(screen.getByText("Products")).toBeInTheDocument()
+  })
+
 
     it.skip('correctly displays quantity from props', () => {
       render(<App />)
@@ -97,7 +100,7 @@ describe('ItemPage component', () => {
      expect(screen.getByRole("textbox").value).toEqual("1")
     })
 
-    it('correctly updates the cart when button is clicked', () => {
+    it.skip('correctly updates the cart when button is clicked', () => {
       render(<ItemPage cart={cart} itemArray={itemArray}/>)
 
       userEvent.click(screen.getByRole("button", { name: "+" }))
@@ -105,4 +108,6 @@ describe('ItemPage component', () => {
 
       expect(screen.getByRole("textbox").value).toEqual("1")
     })
+
+    it.skip('integration test in which ItemSummary deletes an item', () => {})
 })

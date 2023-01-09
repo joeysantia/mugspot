@@ -1,6 +1,6 @@
 import { defaultProps, useState } from 'react'
 
-const QuantityManager = ({ quantity }) => {
+const QuantityManager = ({ itemId, quantity }) => {
     
     const [itemQuantity, setItemQuantity] = useState(quantity)
     
@@ -20,10 +20,12 @@ const QuantityManager = ({ quantity }) => {
         }
     }
 
+    let id = `${itemId}-quantity`
+
     return (
         <div>
             <button type="button" onClick={(e) => decrement()}>-</button>
-            <input type="text" onChange={(e) => handleOnChange(e)} id="quantity" value={itemQuantity}></input>
+            <input type="text" onChange={(e) => handleOnChange(e)} id={id} value={itemQuantity}></input>
             <button type="button" onClick={(e) => increment()}>+</button>
         </div>
     )

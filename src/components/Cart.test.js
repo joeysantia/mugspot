@@ -49,10 +49,25 @@ describe('Cart component', () => {
         expect(screen.getByText("You have no items in your cart")).toBeInTheDocument()
     })
 
-    it('renders the "Thanks for visiting!" message when Buy Now is clicked', () => {
+    it('renders the "Thanks for visiting!" alert message when Buy Now is clicked', () => {
+        const mockAlert = jest.spyOn(window, 'alert').mockImplementation()
         render(<Cart cart={cart} />)
         userEvent.click(screen.getByRole("button", { name: "Buy Now"}))
+        expect(mockAlert).toHaveBeenCalledTimes(1)
+    })
 
-        expect(screen.getByText("Thanks for visiting!")).toBeInTheDocument()
+    //Integration tests
+    it('correctly displays total from props', () => {
+        render(<Cart cart={cart} />)
+        expect(screen.getByText("Total: 118.70")).toBeInTheDocument()
+
+    })
+
+    it.skip('correctly displays total when quantity is increased', () => {
+        render(<Cart />)
+    })
+
+    it.skip('correctly displays total when quantity is decreased', () => {
+
     })
 })
