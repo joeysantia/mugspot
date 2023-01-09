@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { redirect, useParams, Navigate } from "react-router";
+import { useParams, Navigate } from "react-router";
 import QuantityManager from "./QuantityManager";
 const ItemPage = ({ itemArray, cart, setCart }) => {
   let params = useParams();
@@ -9,8 +9,18 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
   }, []);
 
   function getItem(id) {
-    for (const item of itemArray) {
+    let copyArr = JSON.parse(JSON.stringify(itemArray))
+    let copyCart = JSON.parse(JSON.stringify(cart))
+    
+    for (const item of copyArr) {
       if (item.id === id) {
+
+        for (const item2 of copyCart) {
+          if (item2.id === id) {
+            item.quantity = item2.quantity
+          }
+        }
+
         setItem(item);
       }
     }
@@ -22,7 +32,6 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
 
   function updateCart(e) {
     e.preventDefault();
-    console.log('hi there!')
     let quantity = document.querySelector("#quantity").value;
     
     if (quantity > 0) {
@@ -48,8 +57,6 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
     }
     
   }
-
-  //let img = Object.values(item.img)[0]
 
   return (
     <form onSubmit={(e) => updateCart(e)}>

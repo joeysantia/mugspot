@@ -1,35 +1,37 @@
-import { defaultProps } from 'react'
+import { defaultProps, useState } from 'react'
 
-const QuantityManager = ({ quantity, setQuantity }) => {
+const QuantityManager = ({ quantity = 0, setQuantity }) => {
+    
+    const [itemQuantity, setItemQuantity] = useState(quantity)
     
     function increment() {
-        setQuantity(quantity + 1)
+        setItemQuantity(itemQuantity + 1)
     } 
 
     function decrement() {
-        if (quantity > 0) {
-          setQuantity(quantity - 1)
+        if (itemQuantity > 0) {
+          setItemQuantity(itemQuantity - 1)
         }
     }
 
     function handleOnChange(e) {
-        if (parseInt(e.target.value) >= 0) {
-            setQuantity(e.target.value)
+        if (parseInt(e.target.value) && parseInt(e.target.value) >= 0) {
+            setItemQuantity(parseInt(e.target.value))
         }
     }
 
-    console.log(quantity)
     return (
         <div>
-            <button onClick={(e) => decrement()}>Minus</button>
-            <input type="number" onChange={(e) => handleOnChange(e)} id="quantity" value={quantity}/>
-            <button onClick={(e) => increment()}>Plus</button>
+            <button type="button" onClick={(e) => decrement()}>-</button>
+            <input type="text" onChange={(e) => handleOnChange(e)} id="quantity" value={itemQuantity}></input>
+            <button type="button" onClick={(e) => increment()}>+</button>
         </div>
     )
 }
-
+/*
 QuantityManager.defaultProps = {
     quantity: 0
 }
+*/
 
 export default QuantityManager

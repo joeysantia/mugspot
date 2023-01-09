@@ -1,8 +1,23 @@
 import ItemPage from "./ItemPage";
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter, useParams } from 'react-router-dom'
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import App from '../App'
 
 describe('ItemPage component', () => {
+
+    jest.mock('./Shop')
+    jest.mock('./QuantityManager')
+    jest.mock('../App')
+    jest.mock('react-router-dom', () => ({
+      ...jest.requireActual('react-router-dom'), 
+      useParams: () => ({
+        itemId: 'camp',
+        teamId: 'team-id1',
+      }),
+    }));
+
+   
 
     let itemArray = [
         {
@@ -31,41 +46,63 @@ describe('ItemPage component', () => {
           },
           {
             name: "Campfire Mug",
-            id: 'black-ring',
+            id: 'camp',
             index: 3,
             description: "A perfect companion for a campout, road trip, or hike.",
             img: '#',
             price: 14.95
           }, 
         ]
+
     let cart = [
-        
             {
                 name: "Campfire Mug",
-                id: 'black-ring',
+                id: 'camp',
                 index: 3,
                 description: "A perfect companion for a campout, road trip, or hike.",
                 img: '#',
                 price: 14.95,
+                quantity: 2,
               }, 
         
     ]
-    let params = {
-        itemId: 'black-ring'
-    }
 
     it('renders the title, description, price, image, and quantity of an item', () => {
         
 
-        render(<ItemPage itemArray={itemArray} cart={cart} params={params} />, { wrapper: MemoryRouter})
+        render(<App />)
+        userEvent.click(screen.getByRole("button", { name: "Shop Now"}))
+        userEvent.click(screen.getByRole("heading", {name: "Campfire Mug"}))
+
         expect(screen).toMatchSnapshot()
     })
 
-    it.skip('redirects to Shop when addedToCart is true', () => {})
+    it('redirects to Shop when addedToCart is true', () => {
 
-    it.skip('correctly displays quantity from props', () => {})
+      render(<App />)
+      userEvent.click(screen.getByRole("heading", {name: "Campfire Mug"}))
+      userEvent.click(screen.getByRole("button", { name: "+"}))
+      userEvent.click(screen.getByRole("button", { name: "Add to Cart"}))
+      expect(screen.getByText("Products")).toBeInTheDocument()
+    })
 
-    it.skip('correctly displays quantity when changed', () => {})
+    it.skip('correctly displays quantity from props', () => {
+      render(<App />)
+      userEvent.click(screen.getByRole("heading", {name: "Campfire Mug"}))
+      userEvent.click(screen.getByRole("button", { name: "+"}))
+      userEvent.click(screen.getByRole("button", { name: "Add to Cart"}))
+      userEvent.click(screen.getByRole("heading", {name: "Campfire Mug"}))
 
-    it.skip('correctly updates the cart when button is clicked', () => {})
+
+     expect(screen.getByRole("textbox").value).toEqual("1")
+    })
+
+    it('correctly updates the cart when button is clicked', () => {
+      render(<ItemPage cart={cart} itemArray={itemArray}/>)
+
+      userEvent.click(screen.getByRole("button", { name: "+" }))
+      //userEvent.click(screen.getByRole("button", { name: "Add to Cart" }))
+
+      expect(screen.getByRole("textbox").value).toEqual("1")
+    })
 })
