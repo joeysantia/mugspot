@@ -1,6 +1,6 @@
 import { defaultProps, useState } from 'react'
 
-const QuantityManager = ({ quantity = 0, setQuantity }) => {
+const QuantityManager = ({ quantity }) => {
     
     const [itemQuantity, setItemQuantity] = useState(quantity)
     
@@ -28,10 +28,10 @@ const QuantityManager = ({ quantity = 0, setQuantity }) => {
         </div>
     )
 }
-/*
+
 QuantityManager.defaultProps = {
     quantity: 0
 }
-*/
+
 
 export default QuantityManager

@@ -65,7 +65,7 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
       <h2>{item.name}</h2>
       <p>{item.description}</p>
       <p>{item.price}</p>
-      <QuantityManager quantity={quantity} setQuantity={setQuantity} />
+      <QuantityManager quantity={quantity} />
       <button type="submit">Add to Cart</button>
     </form>
   );
