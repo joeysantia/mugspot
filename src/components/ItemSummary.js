@@ -22,7 +22,7 @@ const ItemSummary = ({ item, cart, setCart }) => {
                 </div>
                 <div id="right-box">
                     <h3>{item.name}</h3>
-                    <QuantityManager itemId={item.id} quantity={item.quantity} setCart={setCart}/>
+                    <QuantityManager itemId={item.id} quantity={item.quantity} cart={cart} setCart={setCart}/>
                     <p>Subtotal: {subtotal}</p>
                 </div>
             </div>

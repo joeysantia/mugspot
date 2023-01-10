@@ -1,26 +1,47 @@
 import { defaultProps, useEffect, useState } from 'react'
 
-const QuantityManager = ({ itemId, quantity, setCart }) => {
+const QuantityManager = ({ itemId, quantity, cart, setCart }) => {
     
     useEffect(() => {
         setItemQuantity(quantity)
     }, [quantity])
-    
+
     const [itemQuantity, setItemQuantity] = useState(quantity)
     
     function increment() {
-        setItemQuantity(itemQuantity + 1)
+        let res = itemQuantity + 1
+        setItemQuantity(res)
+        handleSetCart(res)
     } 
 
     function decrement() {
         if (itemQuantity > 0) {
-          setItemQuantity(itemQuantity - 1)
+            let res = itemQuantity - 1
+            setItemQuantity(res)
+            handleSetCart(res)
         }
     }
 
     function handleOnChange(e) {
         if (parseInt(e.target.value) && parseInt(e.target.value) >= 0) {
-            setItemQuantity(parseInt(e.target.value))
+            let res = parseInt(e.target.value)
+            setItemQuantity(res)
+            handleSetCart(res)
+        }
+    }
+
+    function handleSetCart(itemQuantity, callback) {
+        if (cart) {
+            console.log('i was called')
+            let copyCart = JSON.parse(JSON.stringify(cart))
+
+            for (let i = 0; i < copyCart.length; i++) {
+                if (copyCart[i].id === itemId) {
+                    copyCart[i].quantity = itemQuantity
+                }
+            }
+            console.log(copyCart)
+            setCart(copyCart)
         }
     }
 
