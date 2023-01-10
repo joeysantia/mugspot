@@ -1,6 +1,7 @@
-import { defaultProps, useState } from 'react'
+import { defaultProps, useEffect, useState } from 'react'
 
-const QuantityManager = ({ itemId, quantity }) => {
+const QuantityManager = ({ itemId, quantity, setCart }) => {
+    
     
     const [itemQuantity, setItemQuantity] = useState(quantity)
     

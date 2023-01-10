@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import cart from "../img/cart.png"
 import mugIcon from "../img/mug-icon.png"
+import './Navbar.css'
+
 const NavBar = ({ quantity }) => {
   return (
     <nav>
@@ -13,7 +15,7 @@ const NavBar = ({ quantity }) => {
       <div className="link-box">
         <Link to="/shop">Shop</Link>
         <Link to="/cart">
-            <span>{quantity}</span>
+            <span id="cart-quantity">{quantity}</span>
             <img src={cart} alt="cart"></img>
         </Link>
       </div>

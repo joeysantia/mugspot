@@ -1,0 +1,26 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-box a {
+    display: flex;
+    align-items: center;
+    font-size: 32px;    
+}
+
+.link-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 128px;
+}
+
+#cart-quantity {
+    position: relative;
+    left: 36px;
+    bottom: 24px;
+    color: white;
+}
+
