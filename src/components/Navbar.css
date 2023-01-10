@@ -15,6 +15,16 @@ nav {
     justify-content: space-between;
     align-items: center;
     gap: 128px;
+    font-size: 18px;
+}
+
+.link-box a:first-child {
+    transition: 0.1s;
+}
+
+.link-box a:first-child:hover {
+    border-bottom-style: solid;
+    border-bottom-color: black;
 }
 
 #cart-quantity {

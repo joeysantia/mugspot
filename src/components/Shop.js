@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import ItemCard from "./ItemCard"
+import './Shop.css'
 
 const Shop = ({ itemArray, cart, setCart, match }) => {
 
@@ -7,6 +8,7 @@ const Shop = ({ itemArray, cart, setCart, match }) => {
     return (
         <main>
             <h2>Products</h2>
+            <div id="grid">
             {itemArray.length ? itemArray.map((item, i) => {
                 return <Link
                          key={i}
@@ -19,6 +21,8 @@ const Shop = ({ itemArray, cart, setCart, match }) => {
                         
                         
             }) : <p>{noProductsMsg}</p>}
+            </div>
+            
         </main>
     )
 
