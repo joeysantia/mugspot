@@ -3,11 +3,11 @@ import { useParams, Navigate } from "react-router";
 import QuantityManager from "./QuantityManager";
 
 const ItemPage = ({ itemArray, cart, setCart }) => {
-  let params = useParams();
+  let {itemId} = useParams();
 
   useEffect(() => {
-    getItem(params.itemId);
-  }, []);
+    getItem(itemId);
+  }, [cart])
 
   function getItem(id) {
 
@@ -17,19 +17,20 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
     for (const item1 of copyArr) {
       if (item1.id === id) {
 
+        let item = item1
+        
         for (const item2 of copyCart) {
           if (item2.id === id) {
             item.quantity = item2.quantity
           }
         }
-
         setItem(item);
       }
     }
   }
 
   const [item, setItem] = useState({});
-  const [quantity, setQuantity] = useState(item.quantity);
+  //const [quantity, setQuantity] = useState(item.quantity);
   const [addedToCart, setAddedToCart] = useState(false);
 
   function updateCart(e) {
@@ -37,6 +38,7 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
     let quantity = document.querySelector(`#${item.id}-quantity`).value;
     
     if (quantity > 0) {
+
       let updatedItem = JSON.parse(JSON.stringify(item));
       
       updatedItem.quantity = parseInt(quantity);
@@ -45,10 +47,11 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
       
       let isInCart = false
       
-      for (let item of updatedCart) {
-        if (updatedItem.id === item.id) {
-            item = updatedItem
-            isInCart = true 
+      for (let i = 0; i < updatedCart.length; i++) {
+        if (updatedItem.id === updatedCart[i].id) {
+          console.log('happy path')  
+          updatedCart[i] = updatedItem
+          isInCart = true 
         }
       }
       
@@ -56,6 +59,7 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
         updatedCart.push(updatedItem)
       }      
       
+      console.log('updated Cart', updatedCart)
       setCart(updatedCart)
       setAddedToCart(true)
       
@@ -70,7 +74,7 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
       <h2>{item.name}</h2>
       <p>{item.description}</p>
       <p>{item.price}</p>
-      <QuantityManager itemId={item.id} quantity={quantity} />
+      <QuantityManager itemId={item.id} quantity={item.quantity} />
       <button type="submit">Add to Cart</button>
     </form>
   );

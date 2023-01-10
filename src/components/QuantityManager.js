@@ -2,6 +2,9 @@ import { defaultProps, useEffect, useState } from 'react'
 
 const QuantityManager = ({ itemId, quantity, setCart }) => {
     
+    useEffect(() => {
+        setItemQuantity(quantity)
+    }, [quantity])
     
     const [itemQuantity, setItemQuantity] = useState(quantity)
     

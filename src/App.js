@@ -124,7 +124,7 @@ const App = () => {
   const [cart, setCart] = useState([]);
 
   let quantity = (cart.length ? cart.reduce((acc, cur) => { return acc + cur.quantity}, 0) : 0);
-  console.log(quantity)
+
   function getItem(id) {
     for (const item of itemArray) {
       if (item.id === id) {
