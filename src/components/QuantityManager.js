@@ -1,4 +1,4 @@
-import { defaultProps, useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import './QuantityManager.css'
 const QuantityManager = ({ itemId, quantity, cart, setCart }) => {
     
@@ -32,7 +32,6 @@ const QuantityManager = ({ itemId, quantity, cart, setCart }) => {
 
     function handleSetCart(itemQuantity, callback) {
         if (cart) {
-            console.log('i was called')
             let copyCart = JSON.parse(JSON.stringify(cart))
 
             for (let i = 0; i < copyCart.length; i++) {
@@ -40,7 +39,6 @@ const QuantityManager = ({ itemId, quantity, cart, setCart }) => {
                     copyCart[i].quantity = itemQuantity
                 }
             }
-            console.log(copyCart)
             setCart(copyCart)
         }
     }

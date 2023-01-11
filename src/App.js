@@ -100,7 +100,7 @@ const App = () => {
       price: 17.95,
     },
     {
-      name: "Simple Whtie Mug",
+      name: "Simple White Mug",
       id: "white",
       description: "Simple white porcelain mug.",
       img: { white },

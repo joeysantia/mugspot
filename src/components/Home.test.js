@@ -3,9 +3,6 @@ import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 
 describe("Home component", () => {
-
-    jest.mock("./Shop")
-
     it("renders a heading, paragraph, and button", () => {
         render(<Home />, { wrapper: MemoryRouter })
         expect(screen).toMatchSnapshot()

@@ -5,6 +5,8 @@ import "./ItemPage.css";
 
 const ItemPage = ({ itemArray, cart, setCart }) => {
   let { itemId } = useParams();
+  console.log(useParams())
+  console.log(itemId)
   const [item, setItem] = useState({});
   const [addedToCart, setAddedToCart] = useState(false);
 

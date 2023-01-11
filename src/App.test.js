@@ -24,6 +24,15 @@ describe("App", () => {
 
   //Integration tests
 
+  jest.mock('./components/Navbar.js')
+  jest.mock('./components/Home.js')
+  jest.mock('./components/Cart.js')
+  jest.mock('./components/ItemCard.js')
+  jest.mock('./components/ItemPage.js')
+  jest.mock('./components/ItemSummary.js')
+  jest.mock('./components/QuantityManager.js')
+  jest.mock('./components/Shop.js')
+
   describe("routing", () => {
     it("sends the user to the Shop component when button is clicked", () => {
       render(<App />);
@@ -43,8 +52,11 @@ describe("App", () => {
       expect(screen.getByText("Your Cart")).toBeInTheDocument();
     });
 
-    it.skip("sends the user to an ItemPage when an ItemCard is clicked", () => {
-
+    it("sends the user to an ItemPage when an ItemCard is clicked", () => {
+      render(<App />)
+      userEvent.click(screen.getByRole("link", { name: "Shop"}))
+      userEvent.click(screen.getByRole("img", { name: "BlackRing Brand Mug"}))
+      expect(screen.getByText("BlackRing Brand Mug")).toBeInTheDocument()
     })
   });
 
@@ -55,7 +67,23 @@ describe("App", () => {
       expect(screen.getByText("0")).toBeInTheDocument();
     });
 
-    it.skip("quantity correctly handles a populated cart", () => {
+    it("quantity correctly handles a populated cart", () => {
+      render(<App />)
+      userEvent.click(screen.getByRole("link", { name: "Shop"}))
+      userEvent.click(screen.getByRole("img", { name: "BlackRing Brand Mug"}))
+      userEvent.click(screen.getByRole("button", { name: '+' }))
+      userEvent.click(screen.getByRole("button", { name: "Add to Cart" }))
+      expect(screen.getByText("1")).toBeInTheDocument()
+    })
+
+    it("correctly sets the state of Cart", () => {
+      render(<App />)
+      userEvent.click(screen.getByRole("link", { name: "Shop"}))
+      userEvent.click(screen.getByRole("img", { name: "BlackRing Brand Mug"}))
+      userEvent.click(screen.getByRole("button", { name: '+' }))
+      userEvent.click(screen.getByRole("button", { name: "Add to Cart" }))
+      userEvent.click(screen.getByRole("img", { name: 'cart' }))
+      expect(screen.getByText("BlackRing Brand Mug")).toBeInTheDocument()
 
     })
 
