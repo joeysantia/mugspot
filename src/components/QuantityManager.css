@@ -14,6 +14,7 @@
     border-radius: 24px;
     background: white;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 #quantity-manager button:hover {

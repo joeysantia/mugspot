@@ -14,18 +14,18 @@ const ItemSummary = ({ item, cart, setCart }) => {
 
   return (
     <div className="item-summary">
-      <div id="delete-box">
+      <div className="delete-box">
         <img
           src={deleteIcon}
           alt="delete"
           onClick={(e) => deleteItem(item.id)}
         />
       </div>
-      <div id="main-box">
-        <div id="left-box">
+      <div className="main-box">
+        <div className="left-box">
           <img src={img} alt={item.name}></img>
         </div>
-        <div id="right-box">
+        <div className="right-box">
           <h3>{item.name}</h3>
           <QuantityManager
             itemId={item.id}

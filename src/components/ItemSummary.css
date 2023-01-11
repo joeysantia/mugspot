@@ -1,13 +1,40 @@
 .item-summary {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-end;
+    border-style: solid;
+    border-radius: 8px;
+    padding: 6px;
+    width: 80%
 }
 
-#delete-box img {
+.item-summary h3 {
+    font-size: 24px;
+}
+
+.item-summary p {
+    font-size: 20px;
+}
+
+.delete-box img {
     height: 40px;
+    cursor: pointer;
 }
 
-#main-box img {
+.main-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.main-box img {
     height: 80px;
+}
+
+.right-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

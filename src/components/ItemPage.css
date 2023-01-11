@@ -2,14 +2,18 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    height: 350px;
+
 }
 
 form img {
-    height: 350px;
+    height: 100%;
 }
+
 
 form h2 {
     font-size: 36px;
+    margin-top: 15px;
 }
 
 form p {
