@@ -1,20 +1,20 @@
-main {
+#home {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h2 {
+#home h2 {
     width: 100%;
     text-align: left;
     font-size: 96px;
 }
 
-p {
+#home p {
     font-size: 36px;
 }
 
-button {
+#home button {
     font-size: 18px;
     background: black;
     padding: 16px 48px;
@@ -25,7 +25,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+#home button:hover {
     color: black;
     background: white;
     border-color: black;

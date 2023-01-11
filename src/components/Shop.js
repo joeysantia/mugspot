@@ -6,7 +6,7 @@ const Shop = ({ itemArray, cart, setCart, match }) => {
 
     let noProductsMsg = 'No products available at this time. Check back later!'
     return (
-        <main>
+        <main id="shop">
             <h2>Products</h2>
             <div id="grid">
             {itemArray.length ? itemArray.map((item, i) => {

@@ -1,5 +1,5 @@
 import { defaultProps, useEffect, useState } from 'react'
-
+import './QuantityManager.css'
 const QuantityManager = ({ itemId, quantity, cart, setCart }) => {
     
     useEffect(() => {
@@ -48,7 +48,7 @@ const QuantityManager = ({ itemId, quantity, cart, setCart }) => {
     let id = `${itemId}-quantity`
 
     return (
-        <div>
+        <div id="quantity-manager">
             <button type="button" onClick={(e) => decrement()}>-</button>
             <input type="text" onChange={(e) => handleOnChange(e)} id={id} value={itemQuantity}></input>
             <button type="button" onClick={(e) => increment()}>+</button>
@@ -59,6 +59,5 @@ const QuantityManager = ({ itemId, quantity, cart, setCart }) => {
 QuantityManager.defaultProps = {
     quantity: 0
 }
-
 
 export default QuantityManager

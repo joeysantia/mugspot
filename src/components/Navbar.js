@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import cart from "../img/cart.png"
-import mugIcon from "../img/mug-icon.png"
-import './Navbar.css'
+import cart from "../img/cart.png";
+import mugIcon from "../img/mug-icon.png";
+import "./Navbar.css";
 
 const NavBar = ({ quantity }) => {
+  let isInvisible = quantity === 0;
   return (
     <nav>
       <div className="logo-box">
@@ -15,8 +16,10 @@ const NavBar = ({ quantity }) => {
       <div className="link-box">
         <Link to="/shop">Shop</Link>
         <Link to="/cart">
-            <span id="cart-quantity">{quantity}</span>
-            <img src={cart} alt="cart"></img>
+          <span className={isInvisible ? "invisible" : null} id="cart-quantity">
+            {quantity}
+          </span>
+          <img src={cart} alt="cart"></img>
         </Link>
       </div>
     </nav>

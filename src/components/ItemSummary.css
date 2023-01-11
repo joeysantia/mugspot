@@ -1,0 +1,13 @@
+.item-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#delete-box img {
+    height: 40px;
+}
+
+#main-box img {
+    height: 80px;
+}

@@ -9,13 +9,7 @@ import Shop from './components/Shop'
 
 describe('App', () => {
 
-  it.only('m', () => {
-    expect(Math.ceil(Math.random() * 3)).toEqual(4)
-  })
-  
-  /**
-   * add other components as they are made
-   */
+  //Integration tests
 
   it("quantity correctly handles an empty array", () => {
     render(<App />)
@@ -23,10 +17,16 @@ describe('App', () => {
     expect(screen.getByText("0")).toBeInTheDocument()
   })
 
-  it.skip("quantity correctly handles cart array", () => {
-    //in progress
+  it("sends the user to the Shop component when button is clicked", () => {
     render(<App />)
-    userEvent.click(screen.getByRole("button"))
-    expect(screen.getByText("Hello")).toBeInTheDocument()
+    userEvent.click(screen.getByRole("button", { name: "Shop Now"}))
+    expect(screen.getByText("Products")).toBeInTheDocument()
+})
+
+  it("sends the user to the Cart component when the cart icon is clicked", () => {
+    render(<App />)
+    userEvent.click(screen.getByRole("link", { name: "0 cart "}))
+    expect(screen.getByText("Your Cart")).toBeInTheDocument()
   })
+
 })
