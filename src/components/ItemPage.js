@@ -5,15 +5,8 @@ import "./ItemPage.css";
 
 const ItemPage = ({ itemArray, cart, setCart }) => {
   let { itemId } = useParams();
-  console.log(useParams())
-  console.log(itemId)
-  const [item, setItem] = useState({});
+  const [item, setItem] = useState(() => getItem(itemId));
   const [addedToCart, setAddedToCart] = useState(false);
-
-  useEffect(() => {
-    let item = getItem(itemId);
-    setItem(item);
-  }, []);
 
   function getItem(id) {
     let copyArr = JSON.parse(JSON.stringify(itemArray));
@@ -62,8 +55,7 @@ const ItemPage = ({ itemArray, cart, setCart }) => {
     }
   }
 
-  //this is inefficient, but solves a tricky bug. Revisit later
-  let img = Object.values(getItem(itemId).img)[0];
+  let img = Object.values(item.img)[0];
   return (
     <form onSubmit={(e) => updateCart(e)}>
       {addedToCart && <Navigate to="/shop" replace={true} />}
