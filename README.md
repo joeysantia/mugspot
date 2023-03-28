@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Mugspot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Mock e-commerce site built with React and React Router. Designed a homepage, shop page, item pages, and a cart/checkout page. Built component tests with Jest.
+
+## Live Site:
+
+## Further changes
+1. Add "Loading..." layer while images load on ItemCards
+2. Incorporate Firebase 
 
 ## Available Scripts
 
@@ -68,3 +74,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Image Credits
+1. Mug Icon: Freepik https://www.flaticon.com/authors/freepik
+2. Cart Icon: Freepik https://www.flaticon.com/authors/freepik
+3. Black Ring Mug: Nathan Dumlao https://unsplash.com/@nate_dumlao
+4. Black Clay Mug: John Forson https://unsplash.com/@jonforson
+5. Boss Mug: Paul Hanaoka https://unsplash.com/@plhnk
+6. Campfire Mug: Jonas Brief https://unsplash.com/@briefjonas
+7. Coffee/Tea Set: Mel Poole https://unsplash.com/@melpoole
+8. Pink Mug: Olena Sergienko https://unsplash.com/@olenkasergienko
+9. Gold Handle Mug: Nong V https://unsplash.com/@californong
+10. Fill Me Up With Coffee Mug: Mel Poole https://unsplash.com/@melpoole
+11. Art Mug: Madalyn Cox https://unsplash.com/@madalyncox
+12. Let Life Surprise You Mug: Dagmara Dombrovska https://unsplash.com/@dagmara_rune
+13. Handcrafted Clay Mug: Annie Spratt https://unsplash.com/@anniespratt
+14. Be a Flamingo Mug: Bryce Koch https://unsplash.com/@rolly_joger
+15. White Mug: Shirley Tittermary https://unsplash.com/@mamabirdphoto
+
