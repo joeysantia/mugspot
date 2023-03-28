@@ -22,7 +22,12 @@
     width: auto;
 }
 
-.item-cart h2 {
-
+.loading {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 99;
+    background: black;
+    color: white;
 }
 

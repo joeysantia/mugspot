@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./ItemCard.css";
 
 const ItemCard = ({ item }) => {
