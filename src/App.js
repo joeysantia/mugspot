@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import NavBar from "./components/Navbar";
 import Home from "./components/Home";
@@ -125,7 +125,7 @@ const App = () => {
   }
   
   return (
-    <BrowserRouter>
+    <HashRouter>
       <NavBar quantity={quantity} />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -141,7 +141,7 @@ const App = () => {
         />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
