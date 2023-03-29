@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/mugspot/static/css/main.fef98dda.css",
+    "main.js": "/mugspot/static/js/main.956fb584.js",
+    "static/js/787.d6fe38e8.chunk.js": "/mugspot/static/js/787.d6fe38e8.chunk.js",
+    "static/media/gold-handle.jpg": "/mugspot/static/media/gold-handle.95c21d3071292072eec0.jpg",
+    "static/media/black-ring.jpg": "/mugspot/static/media/black-ring.90f712f3afdf5626184b.jpg",
+    "static/media/camp.jpg": "/mugspot/static/media/camp.fa1360233d246ea40472.jpg",
+    "static/media/flamingo.jpg": "/mugspot/static/media/flamingo.5951a692c7f327643e7c.jpg",
+    "static/media/clay.jpg": "/mugspot/static/media/clay.156244a408b92416026b.jpg",
+    "static/media/white.jpg": "/mugspot/static/media/white.0e6798bf524837adb572.jpg",
+    "static/media/boss.jpg": "/mugspot/static/media/boss.36dba28bcc324cb44a4a.jpg",
+    "static/media/coffee-tea.jpg": "/mugspot/static/media/coffee-tea.c63a420e45d2c20c67c8.jpg",
+    "static/media/craft.jpg": "/mugspot/static/media/craft.ffddc18570d80e953a68.jpg",
+    "static/media/black.jpg": "/mugspot/static/media/black.55d4443772156698eb4d.jpg",
+    "static/media/pink.jpg": "/mugspot/static/media/pink.277152a9912e91fb8253.jpg",
+    "static/media/surprise.jpg": "/mugspot/static/media/surprise.b115fbdc7587fc57f95a.jpg",
+    "static/media/delete.png": "/mugspot/static/media/delete.a6fd29509719f079bfd7.png",
+    "index.html": "/mugspot/index.html",
+    "main.fef98dda.css.map": "/mugspot/static/css/main.fef98dda.css.map",
+    "main.956fb584.js.map": "/mugspot/static/js/main.956fb584.js.map",
+    "787.d6fe38e8.chunk.js.map": "/mugspot/static/js/787.d6fe38e8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fef98dda.css",
+    "static/js/main.956fb584.js"
+  ]
+}
