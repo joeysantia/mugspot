@@ -2,7 +2,7 @@
 
 Mock e-commerce site built with React and React Router. Designed a homepage, shop page, item pages, and a cart/checkout page. Built component tests with Jest.
 
-## Live Site:
+## Live Site: https://mugspot-4d038.web.app/
 
 ## Further changes
 1. Add "Loading..." layer while images load on ItemCards
