@@ -6,12 +6,14 @@
 
 #home h2 {
     width: 100%;
-    text-align: left;
+    text-align: center;
     font-size: 96px;
 }
 
 #home p {
+    max-width: 750px;
     font-size: 36px;
+    text-align: center;
 }
 
 #home button {
